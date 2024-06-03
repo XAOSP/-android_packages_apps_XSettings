@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 XAOSP Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/menu_sound_settings_title">
+
+    <!-- Volume panel -->
+    <PreferenceCategory
+        android:key="volume_panel_category"
+        android:title="@string/volume_panel_title" >
+
+        <!-- Show volume panel on left side of screen -->
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="volume_panel_on_left"
+            android:title="@string/volume_panel_on_left_title"
+            android:summary="@string/volume_panel_on_left_summary" />
+
+        <!-- Volume panel timeout -->
+        <com.lineage.support.preferences.SystemSettingSeekBarPreference
+            android:key="volume_dialog_timeout"
+            android:title="@string/volume_dialog_timeout_title"
+            android:defaultValue="3"
+            android:max="10"
+            settings:min="1"
+            settings:units="@string/unit_seconds" />
+    </PreferenceCategory>
+
+    <!-- Volume steps -->
+    <PreferenceCategory
+        android:key="volume_steps_category"
+        android:title="@string/volume_steps_title" >
+
+        <com.lineage.support.preferences.CustomSeekBarPreference
+            android:key="max_music_volume"
+            android:title="@string/max_music_volume_title"
+            android:max="100"
+            settings:min="15"
+            settings:interval="5"
+            settings:units="@string/unit_steps" />
+
+        <com.lineage.support.preferences.CustomSeekBarPreference
+            android:key="max_call_volume"
+            android:title="@string/max_call_volume_title"
+            android:max="30"
+            settings:min="5"
+            settings:interval="1"
+            settings:units="@string/unit_steps" />
+
+        <com.lineage.support.preferences.CustomSeekBarPreference
+            android:key="max_alarm_volume"
+            android:title="@string/max_alarm_volume_title"
+            android:max="30"
+            settings:min="7"
+            settings:interval="1"
+            settings:units="@string/unit_steps" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
